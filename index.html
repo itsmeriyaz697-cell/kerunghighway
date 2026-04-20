@@ -4,27 +4,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kerung Highway Resort | Nuwakot Express</title>
+    <meta name="description" content="Official site for Kerung Highway Resort by Rabindra Chalise. Food delivery in Bidur, Battar, and Room bookings in Nuwakot.">
     <style>
         :root { --red: #d90429; --dark: #2b2d42; --white: #edf2f4; --green: #25D366; }
-        body { font-family: 'Segoe UI', Tahoma, sans-serif; margin: 0; background: var(--white); padding-bottom: 120px; }
+        body { font-family: 'Segoe UI', Tahoma, sans-serif; margin: 0; background: var(--white); padding-bottom: 150px; }
         header { background: var(--red); color: white; padding: 20px; text-align: center; border-radius: 0 0 20px 20px; }
         .container { padding: 15px; max-width: 500px; margin: auto; }
         
-        /* Menu Cards */
+        /* Food & Room Items */
         .item { background: white; padding: 12px; border-radius: 15px; display: flex; align-items: center; margin-bottom: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); border-left: 5px solid var(--red); }
         .info { flex: 1; margin-left: 15px; }
-        .info h3 { margin: 0; color: var(--dark); }
+        .info h3 { margin: 0; color: var(--dark); font-size: 1.1rem; }
         .add-btn { background: var(--red); color: white; border: none; padding: 10px 15px; border-radius: 8px; cursor: pointer; font-weight: bold; }
 
         /* Bottom Floating Bar */
         .bottom-bar { position: fixed; bottom: 0; width: 100%; background: white; padding: 20px; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 -4px 15px rgba(0,0,0,0.1); box-sizing: border-box; z-index: 50; }
-        .order-btn { background: var(--green); color: white; border: none; padding: 15px 25px; border-radius: 12px; font-weight: bold; font-size: 1rem; cursor: pointer; }
+        .order-btn { background: var(--green); color: white; border: none; padding: 15px 25px; border-radius: 12px; font-weight: bold; cursor: pointer; }
 
-        /* Modal Overlay */
+        /* Modals */
         .modal { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); display: none; justify-content: center; align-items: center; padding: 20px; box-sizing: border-box; z-index: 100; }
-        .modal-content { background: white; padding: 25px; border-radius: 20px; width: 100%; max-width: 400px; position: relative; }
-        input, select { width: 100%; padding: 14px; margin-top: 12px; border: 1px solid #ddd; border-radius: 10px; font-size: 1rem; }
-        label { font-weight: bold; display: block; margin-top: 10px; color: var(--dark); }
+        .modal-content { background: white; padding: 25px; border-radius: 20px; width: 100%; max-width: 400px; max-height: 80vh; overflow-y: auto; }
+        input, select { width: 100%; padding: 12px; margin-top: 10px; border: 1px solid #ddd; border-radius: 10px; }
+
+        /* Footer Info */
+        footer { background: var(--dark); color: white; padding: 20px; text-align: center; margin-top: 20px; }
+        footer a { color: #8d99ae; text-decoration: none; margin: 0 10px; font-size: 0.8rem; cursor: pointer; }
     </style>
 </head>
 <body>
@@ -34,114 +38,86 @@
     <p style="margin:5px 0 0 0;">Owner: Rabindra Chalise | Nuwakot</p>
 </header>
 
-<div class="container" id="menu-list">
-    <div class="item">
-        <div class="info"><h3>Chicken Thali (Special)</h3><p>Rs. 350</p></div>
-        <button class="add-btn" onclick="addToCart('Chicken Thali', 350)">Add +</button>
-    </div>
-    <div class="item">
-        <div class="info"><h3>Chicken Momo</h3><p>Rs. 150</p></div>
-        <button class="add-btn" onclick="addToCart('Chicken Momo', 150)">Add +</button>
-    </div>
-    <div class="item">
-        <div class="info"><h3>Chowmein</h3><p>Rs. 120</p></div>
-        <button class="add-btn" onclick="addToCart('Chowmein', 120)">Add +</button>
-    </div>
-    <div class="item">
-        <div class="info"><h3>Cold Drink / Coffee</h3><p>Rs. 100</p></div>
-        <button class="add-btn" onclick="addToCart('Drink/Coffee', 100)">Add +</button>
-    </div>
+<div class="container">
+    <div class="item"><div class="info"><h3>Chicken Thali</h3><p>Rs. 350</p></div><button class="add-btn" onclick="add('Thali', 350)">Add +</button></div>
+    <div class="item"><div class="info"><h3>Chicken Momo</h3><p>Rs. 150</p></div><button class="add-btn" onclick="add('Momo', 150)">Add +</button></div>
+    <div class="item"><div class="info"><h3>Luxury Room</h3><p>Book Now</p></div><button class="add-btn" style="background:var(--dark);" onclick="openRoom()">Book</button></div>
 </div>
 
 <div class="bottom-bar">
-    <div>Total: <span id="total-price" style="font-size: 1.2rem; font-weight:bold; color:var(--red);">Rs. 0</span></div>
-    <button class="order-btn" onclick="openOrder()">Send Order</button>
+    <div>Total: <span id="total" style="font-weight:bold; color:var(--red);">Rs. 0</span></div>
+    <button class="order-btn" onclick="openOrder()">Order / Book</button>
 </div>
 
 <div id="orderModal" class="modal">
     <div class="modal-content">
-        <h3>Final Details</h3>
-        
-        <label>What do you need?</label>
-        <select id="serviceType" onchange="checkService()">
+        <h3>Order Details</h3>
+        <select id="srvType" onchange="checkSrv()">
             <option value="Delivery">Food Delivery</option>
-            <option value="Pre-order">Pre-order (Dine-in)</option>
-            <option value="Room Booking">Book a Room</option>
+            <option value="Dine-in">Pre-order (Dine-in)</option>
+            <option value="Room">Room Booking</option>
         </select>
-
-        <div id="locationDiv">
-            <label>Location:</label>
-            <select id="userLoc">
-                <option value="Battar">Battar</option>
-                <option value="Hawaghar">Hawaghar</option>
-                <option value="Bidur">Bidur</option>
-                <option value="Dhunga">Dhunga</option>
-                <option value="Betrawoti">Betrawoti</option>
-                <option value="Trisuli">Trisuli</option>
+        <div id="locDiv">
+            <select id="loc">
+                <option value="Battar">Battar</option><option value="Hawaghar">Hawaghar</option>
+                <option value="Bidur">Bidur</option><option value="Dhunga">Dhunga</option>
+                <option value="Betrawoti">Betrawoti</option><option value="Trisuli">Trisuli</option>
             </select>
         </div>
-
-        <input type="text" id="userName" placeholder="Your Name">
-        <input type="tel" id="userPhone" placeholder="Mobile Number">
-        
-        <button class="order-btn" style="width:100%; margin-top:20px;" onclick="finishOrder()">Confirm via WhatsApp</button>
-        <button onclick="closeOrder()" style="width:100%; background:none; border:none; margin-top:10px; color:grey;">Cancel</button>
+        <input type="text" id="uName" placeholder="Your Name">
+        <input type="tel" id="uPhone" placeholder="Phone Number">
+        <button class="order-btn" style="width:100%; margin-top:15px;" onclick="send()">Confirm via WhatsApp</button>
+        <button onclick="closeModals()" style="width:100%; background:none; border:none; margin-top:10px; color:grey;">Cancel</button>
     </div>
 </div>
 
+<div id="infoModal" class="modal">
+    <div class="modal-content">
+        <div id="infoBody"></div>
+        <button onclick="closeModals()" style="width:100%; margin-top:20px; padding:10px; background:var(--dark); color:white; border:none; border-radius:8px;">Close</button>
+    </div>
+</div>
+
+<footer>
+    <p>© 2026 Kerung Highway Resort</p>
+    <a onclick="showInfo('about')">About Us</a> | 
+    <a onclick="showInfo('contact')">Contact</a> | 
+    <a onclick="showInfo('privacy')">Privacy Policy</a>
+</footer>
+
 <script>
     let cart = [];
+    const dadNum = "9779851254049";
 
-    function addToCart(name, price) {
-        cart.push({name, price});
-        let total = cart.reduce((sum, item) => sum + item.price, 0);
-        document.getElementById('total-price').innerText = `Rs. ${total}`;
+    function add(n, p) { cart.push({n, p}); document.getElementById('total').innerText = "Rs. " + cart.reduce((s, i) => s+i.p, 0); }
+    function openOrder() { document.getElementById('orderModal').style.display = 'flex'; }
+    function openRoom() { document.getElementById('srvType').value = 'Room'; checkSrv(); openOrder(); }
+    function closeModals() { document.querySelectorAll('.modal').forEach(m => m.style.display = 'none'); }
+    function checkSrv() { document.getElementById('locDiv').style.display = (document.getElementById('srvType').value === 'Delivery') ? 'block' : 'none'; }
+
+    function send() {
+        const type = document.getElementById('srvType').value;
+        const name = document.getElementById('uName').value;
+        const phone = document.getElementById('uPhone').value;
+        const loc = (type === 'Delivery') ? document.getElementById('loc').value : "Resort";
+        if(!name || !phone) return alert("Fill Name/Phone!");
+
+        let items = cart.map(i => i.n).join(", ");
+        let total = cart.reduce((s, i) => s+i.p, 0);
+        let msg = `*NEW REQUEST*%0A*Service:* ${type}%0A*Name:* ${name}%0A*Loc:* ${loc}%0A*Phone:* ${phone}`;
+        if(type !== 'Room') msg += `%0A*Order:* ${items}%0A*Total:* Rs. ${total}`;
+        else msg += `%0A*Request:* Interested in Room Booking.`;
+
+        window.open(`https://wa.me/${dadNum}?text=${msg}`, '_blank');
     }
 
-    function openOrder() { 
-        if(cart.length === 0 && document.getElementById('serviceType').value !== 'Room Booking') {
-            alert("Please add items or select Room Booking!");
-            return;
-        }
-        document.getElementById('orderModal').style.display = 'flex'; 
-    }
-    
-    function closeOrder() { document.getElementById('orderModal').style.display = 'none'; }
+    const infos = {
+        about: "<h2>About Us</h2><p>Kerung Highway Resort is owned by <b>Rabindra Chalise</b> in Nuwakot. We offer the best local hospitality, delicious food, and clean rooms for travelers on the Pasang Lhamu Highway.</p>",
+        contact: "<h2>Contact</h2><p><b>Owner:</b> Rabindra Chalise</p><p><b>Phone:</b> 9851254049</p><p><b>Location:</b> Nuwakot, Nepal</p><p><b>Email:</b> itsmeriyaz697@gmail.com</p>",
+        privacy: "<h2>Privacy Policy</h2><p>We collect only your Name, Phone, and Location to process orders via WhatsApp. We do not store your data or share it with third parties. This site is created for Kerung Highway Resort.</p>"
+    };
 
-    function checkService() {
-        const type = document.getElementById('serviceType').value;
-        const locDiv = document.getElementById('locationDiv');
-        // Hide location if they are coming to the hotel
-        locDiv.style.display = (type === 'Delivery') ? 'block' : 'none';
-    }
-
-    function finishOrder() {
-        const type = document.getElementById('serviceType').value;
-        const name = document.getElementById('userName').value;
-        const phone = document.getElementById('userPhone').value;
-        const loc = (type === 'Delivery') ? document.getElementById('userLoc').value : "At Resort";
-
-        if(!name || !phone) return alert("Please enter Name and Phone!");
-
-        const items = cart.map(i => i.name).join(", ");
-        const total = cart.reduce((sum, item) => sum + item.price, 0);
-
-        let msg = `*ORDER FOR RABINDRA CHALISE*%0A`;
-        msg += `*Service:* ${type}%0A`;
-        msg += `*Name:* ${name}%0A`;
-        msg += `*Location:* ${loc}%0A`;
-        msg += `*Phone:* ${phone}%0A`;
-        
-        if(type !== 'Room Booking') {
-            msg += `*Items:* ${items}%0A`;
-            msg += `*Total:* Rs. ${total}`;
-        } else {
-            msg += `*Request:* I want to book a room. Please send photos and price.`;
-        }
-        
-        // Your Dad's Number
-        window.open(`https://wa.me/9779851254049?text=${msg}`, '_blank');
-    }
+    function showInfo(k) { document.getElementById('infoBody').innerHTML = infos[k]; document.getElementById('infoModal').style.display = 'flex'; }
 </script>
 </body>
 </html>
