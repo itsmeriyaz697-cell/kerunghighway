@@ -1,143 +1,120 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3176406028641137"
-     crossorigin="anonymous"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kerung Highway Resort | Nuwakot Express</title>
-    <meta name="description" content="Official site for Kerung Highway Resort by Rabindra Chalise. Food delivery in Bidur, Battar, and Room bookings in Nuwakot.">
+    <title>Kerung Highway Resort | Nuwakot</title>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-YOUR_ID" crossorigin="anonymous"></script>
+    
     <style>
         :root { --red: #d90429; --dark: #2b2d42; --white: #edf2f4; --green: #25D366; }
-        body { font-family: 'Segoe UI', Tahoma, sans-serif; margin: 0; background: var(--white); padding-bottom: 150px; }
-        header { background: var(--red); color: white; padding: 20px; text-align: center; border-radius: 0 0 20px 20px; }
-        .container { padding: 15px; max-width: 500px; margin: auto; }
-        
-        /* Food & Room Items */
-        .item { background: white; padding: 12px; border-radius: 15px; display: flex; align-items: center; margin-bottom: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); border-left: 5px solid var(--red); }
-        .info { flex: 1; margin-left: 15px; }
-        .info h3 { margin: 0; color: var(--dark); font-size: 1.1rem; }
-        .add-btn { background: var(--red); color: white; border: none; padding: 10px 15px; border-radius: 8px; cursor: pointer; font-weight: bold; }
-
-        /* Bottom Floating Bar */
-        .bottom-bar { position: fixed; bottom: 0; width: 100%; background: white; padding: 20px; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 -4px 15px rgba(0,0,0,0.1); box-sizing: border-box; z-index: 50; }
-        .order-btn { background: var(--green); color: white; border: none; padding: 15px 25px; border-radius: 12px; font-weight: bold; cursor: pointer; }
-
-        /* Modals */
-        .modal { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); display: none; justify-content: center; align-items: center; padding: 20px; box-sizing: border-box; z-index: 100; }
-        .modal-content { background: white; padding: 25px; border-radius: 20px; width: 100%; max-width: 400px; max-height: 80vh; overflow-y: auto; }
-        input, select { width: 100%; padding: 12px; margin-top: 10px; border: 1px solid #ddd; border-radius: 10px; }
-
-        /* Footer Info */
-        footer { background: var(--dark); color: white; padding: 20px; text-align: center; margin-top: 20px; }
-        footer a { color: #8d99ae; text-decoration: none; margin: 0 10px; font-size: 0.8rem; cursor: pointer; }
+        body { font-family: 'Segoe UI', sans-serif; margin: 0; background: var(--white); padding-bottom: 120px; }
+        header { background: var(--red); color: white; padding: 20px; text-align: center; }
+        .hero { width:100%; height:200px; overflow:hidden; position:relative; background:#ccc; }
+        .hero img { width:100%; height:100%; object-fit:cover; }
+        .container { padding: 15px; max-width: 600px; margin: auto; }
+        .category-title { margin-top: 25px; border-bottom: 2px solid var(--red); display: inline-block; padding-bottom: 5px; color: var(--dark); }
+        .item { background: white; padding: 12px; border-radius: 12px; display: flex; align-items: center; margin-bottom: 10px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+        .info { flex: 1; margin-left: 10px; }
+        .info h3 { margin: 0; font-size: 1rem; color: var(--dark); }
+        .info p { margin: 2px 0; font-size: 0.9rem; color: #666; }
+        .add-btn { background: var(--red); color: white; border: none; padding: 8px 12px; border-radius: 8px; cursor: pointer; font-weight: bold; }
+        .bottom-bar { position: fixed; bottom: 0; width: 100%; background: white; padding: 15px; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 -2px 10px rgba(0,0,0,0.1); box-sizing: border-box; z-index: 100; }
+        .order-btn { background: var(--green); color: white; border: none; padding: 12px 20px; border-radius: 10px; font-weight: bold; cursor: pointer; }
+        .modal { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); display: none; justify-content: center; align-items: center; z-index: 200; padding: 20px; box-sizing: border-box; }
+        .modal-content { background: white; padding: 20px; border-radius: 15px; width: 100%; max-width: 400px; max-height: 80vh; overflow-y: auto; }
+        footer { background: var(--dark); color: white; padding: 20px; text-align: center; font-size: 0.8rem; }
+        footer a { color: #aaa; text-decoration: none; margin: 0 10px; cursor: pointer; }
     </style>
 </head>
 <body>
 
 <header>
     <h2 style="margin:0;">Kerung Highway Resort</h2>
-    <p style="margin:5px 0 0 0;">Owner: Rabindra Chalise | Nuwakot</p>
+    <p style="margin:5px 0 0 0;">Authentic Taste in Nuwakot</p>
 </header>
 
+<div class="hero">
+    <img src="https://scontent.fktm13-1.fna.fbcdn.net/v/t39.30808-6/486642935_966207719045024_5325651600482487490_n.jpg?stp=cp6_dst-jpg_tt6&_nc_cat=108&ccb=1-7&_nc_sid=2a1932&_nc_ohc=IO19_o1goSUQ7kNvwGu2ZBq&_nc_oc=Adr2Lc50eBB7KTVCNZZKzMNYYb3BonUJ6qTy9n8MsdXNkqHIqlFY_8vVdHTE3aianSQ&_nc_zt=23&_nc_ht=scontent.fktm13-1.fna&_nc_gid=kbuSwQRvIjEQWVupzWBkNQ&_nc_ss=7a3a8&oh=00_Af3hP8HzbEhe6dfYPZjzgZXtWHZjIfHLynmadVdQzeBZgQ&oe=69EBAA19" alt="Kerung Resort">
+</div>
+
 <div class="container">
-    <h3 class="category-title">🥟 Momo Specials</h3>
-    <div class="item"><div class="info"><h3>Veg Momo</h3><p>Rs. 120</p></div><button class="add-btn" onclick="add('Veg Momo', 120)">Add +</button></div>
-    <div class="item"><div class="info"><h3>Chicken Momo</h3><p>Rs. 150</p></div><button class="add-btn" onclick="add('Chic Momo', 150)">Add +</button></div>
-    <div class="item"><div class="info"><h3>Buff Momo</h3><p>Rs. 130</p></div><button class="add-btn" onclick="add('Buff Momo', 130)">Add +</button></div>
+    <h3 class="category-title">🥟 Momo (Steamed/Fried)</h3>
+    <div class="item"><div class="info"><h3>Veg Momo</h3><p>Rs. 120</p></div><button class="add-btn" onclick="add('Veg Momo', 120)">+</button></div>
+    <div class="item"><div class="info"><h3>Chicken Momo</h3><p>Rs. 150</p></div><button class="add-btn" onclick="add('Chic Momo', 150)">+</button></div>
+    <div class="item"><div class="info"><h3>Buff Momo</h3><p>Rs. 130</p></div><button class="add-btn" onclick="add('Buff Momo', 130)">+</button></div>
 
-    <h3 class="category-title">🍛 Main Course</h3>
-    <div class="item"><div class="info"><h3>Thakali Khaja Set</h3><p>Rs. 450</p></div><button class="add-btn" onclick="add('Thakali Set', 450)">Add +</button></div>
-    <div class="item"><div class="info"><h3>Veg Biryani</h3><p>Rs. 250</p></div><button class="add-btn" onclick="add('Veg Biryani', 250)">Add +</button></div>
-    <div class="item"><div class="info"><h3>Chicken Biryani</h3><p>Rs. 350</p></div><button class="add-btn" onclick="add('Chic Biryani', 350)">Add +</button></div>
-    <div class="item"><div class="info"><h3>Veg Chowmein</h3><p>Rs. 100</p></div><button class="add-btn" onclick="add('Veg Chow', 100)">Add +</button></div>
-    <div class="item"><div class="info"><h3>Non-Veg Chowmein</h3><p>Rs. 140</p></div><button class="add-btn" onclick="add('NV Chow', 140)">Add +</button></div>
+    <h3 class="category-title">🍚 Mains & Thakali</h3>
+    <div class="item"><div class="info"><h3>Veg Khana Set</h3><p>Pure Veg</p></div><button class="add-btn" onclick="add('Veg Khana', 200)">+</button></div>
+    <div class="item"><div class="info"><h3>Thakali Khaja Set</h3><p>Local Flavors</p></div><button class="add-btn" onclick="add('Thakali Set', 400)">+</button></div>
+    <div class="item"><div class="info"><h3>Chicken Biryani</h3><p>Rs. 350</p></div><button class="add-btn" onclick="add('Chic Biryani', 350)">+</button></div>
 
-    <h3 class="category-title">🍟 Snacks</h3>
-    <div class="item"><div class="info"><h3>French Fries</h3><p>Rs. 120</p></div><button class="add-btn" onclick="add('Fries', 120)">Add +</button></div>
-    <div class="item"><div class="info"><h3>Chicken Drumsticks</h3><p>Rs. 300</p></div><button class="add-btn" onclick="add('Drumsticks', 300)">Add +</button></div>
+    <h3 class="category-title">🍜 Noodles & Snacks</h3>
+    <div class="item"><div class="info"><h3>Veg Chowmein</h3><p>Rs. 100</p></div><button class="add-btn" onclick="add('Veg Chow', 100)">+</button></div>
+    <div class="item"><div class="info"><h3>Chicken Drumsticks</h3><p>4 Pieces</p></div><button class="add-btn" onclick="add('Drumsticks', 300)">+</button></div>
+    <div class="item"><div class="info"><h3>French Fries</h3><p>Crispy</p></div><button class="add-btn" onclick="add('Fries', 120)">+</button></div>
 
     <h3 class="category-title">🥤 Cold Drinks</h3>
-    <div class="item"><div class="info"><h3>Coke / Fanta / Sprite</h3><p>Rs. 60</p></div><button class="add-btn" onclick="add('Cold Drink', 60)">Add +</button></div>
-    <div class="item"><div class="info"><h3>Red Bull</h3><p>Rs. 120</p></div><button class="add-btn" onclick="add('Red Bull', 120)">Add +</button></div>
+    <div class="item"><div class="info"><h3>Coke / Fanta / Sprite</h3><p>Cold</p></div><button class="add-btn" onclick="add('Cold Drink', 65)">+</button></div>
+    <div class="item"><div class="info"><h3>Red Bull</h3><p>Energy</p></div><button class="add-btn" onclick="add('Red Bull', 120)">+</button></div>
 
-    <h3 class="category-title">🛏️ Rooms</h3>
-    <div class="item"><div class="info"><h3>Luxury Room</h3><p>Nuwakot View</p></div><button class="add-btn" style="background:var(--dark);" onclick="openRoom()">Book Room</button></div>
+    <h3 class="category-title">🛏️ Stay</h3>
+    <div class="item"><div class="info"><h3>Luxury Room</h3><p>Night Stay</p></div><button class="add-btn" style="background:var(--dark);" onclick="openOrder('Room')">Book</button></div>
 </div>
+
 <div class="bottom-bar">
-    <div>Total: <span id="total" style="font-weight:bold; color:var(--red);">Rs. 0</span></div>
-    <button class="order-btn" onclick="openOrder()">Order / Book</button>
+    <div>Total: <span id="total" style="color:var(--red); font-weight:bold;">Rs. 0</span></div>
+    <button class="order-btn" onclick="openOrder('Order')">Proceed</button>
 </div>
 
 <div id="orderModal" class="modal">
     <div class="modal-content">
-        <h3>Order Details</h3>
-        <select id="srvType" onchange="checkSrv()">
-            <option value="Delivery">Food Delivery</option>
-            <option value="Dine-in">Pre-order (Dine-in)</option>
-            <option value="Room">Room Booking</option>
-        </select>
-        <div id="locDiv">
-            <select id="loc">
-                <option value="Battar">Battar</option><option value="Hawaghar">Hawaghar</option>
-                <option value="Bidur">Bidur</option><option value="Dhunga">Dhunga</option>
-                <option value="Betrawoti">Betrawoti</option><option value="Trisuli">Trisuli</option>
-            </select>
-        </div>
+        <h3 id="modalTitle">Confirm Order</h3>
         <input type="text" id="uName" placeholder="Your Name">
-        <input type="tel" id="uPhone" placeholder="Phone Number">
-        <button class="order-btn" style="width:100%; margin-top:15px;" onclick="send()">Confirm via WhatsApp</button>
-        <button onclick="closeModals()" style="width:100%; background:none; border:none; margin-top:10px; color:grey;">Cancel</button>
+        <input type="tel" id="uPhone" placeholder="Your Phone Number">
+        <select id="uLoc">
+            <option value="Battar">Battar</option><option value="Bidur">Bidur</option>
+            <option value="Hawaghar">Hawaghar</option><option value="Trisuli">Trisuli</option>
+        </select>
+        <button class="order-btn" style="width:100%; margin-top:15px;" onclick="sendWA()">Send to WhatsApp</button>
+        <button onclick="closeModal()" style="width:100%; background:none; border:none; color:grey; margin-top:10px;">Cancel</button>
     </div>
 </div>
 
-<div id="infoModal" class="modal">
-    <div class="modal-content">
-        <div id="infoBody"></div>
-        <button onclick="closeModals()" style="width:100%; margin-top:20px; padding:10px; background:var(--dark); color:white; border:none; border-radius:8px;">Close</button>
-    </div>
-</div>
+<div id="infoModal" class="modal"><div class="modal-content"><div id="infoBody"></div><button onclick="closeModal()" style="width:100%; padding:10px; margin-top:15px;">Close</button></div></div>
 
 <footer>
-    <p>© 2026 Kerung Highway Resort</p>
-    <a onclick="showInfo('about')">About Us</a> | 
-    <a onclick="showInfo('contact')">Contact</a> | 
-    <a onclick="showInfo('privacy')">Privacy Policy</a>
+    <p>© 2026 Kerung Highway Resort - Rabindra Chalise</p>
+    <a onclick="showInfo('about')">About</a> | <a onclick="showInfo('contact')">Contact</a> | <a onclick="showInfo('privacy')">Privacy</a>
 </footer>
 
 <script>
     let cart = [];
-    const dadNum = "9779851254049";
+    const dadPhone = "9779851254049";
 
     function add(n, p) { cart.push({n, p}); document.getElementById('total').innerText = "Rs. " + cart.reduce((s, i) => s+i.p, 0); }
-    function openOrder() { document.getElementById('orderModal').style.display = 'flex'; }
-    function openRoom() { document.getElementById('srvType').value = 'Room'; checkSrv(); openOrder(); }
-    function closeModals() { document.querySelectorAll('.modal').forEach(m => m.style.display = 'none'); }
-    function checkSrv() { document.getElementById('locDiv').style.display = (document.getElementById('srvType').value === 'Delivery') ? 'block' : 'none'; }
+    function openOrder(type) { document.getElementById('modalTitle').innerText = (type==='Room') ? 'Book a Room' : 'Confirm Food Order'; document.getElementById('orderModal').style.display='flex'; }
+    function closeModal() { document.querySelectorAll('.modal').forEach(m => m.style.display='none'); }
 
-    function send() {
-        const type = document.getElementById('srvType').value;
+    function sendWA() {
         const name = document.getElementById('uName').value;
         const phone = document.getElementById('uPhone').value;
-        const loc = (type === 'Delivery') ? document.getElementById('loc').value : "Resort";
-        if(!name || !phone) return alert("Fill Name/Phone!");
+        const loc = document.getElementById('uLoc').value;
+        if(!name || !phone) return alert("Please enter Name and Phone");
 
         let items = cart.map(i => i.n).join(", ");
         let total = cart.reduce((s, i) => s+i.p, 0);
-        let msg = `*NEW REQUEST*%0A*Service:* ${type}%0A*Name:* ${name}%0A*Loc:* ${loc}%0A*Phone:* ${phone}`;
-        if(type !== 'Room') msg += `%0A*Order:* ${items}%0A*Total:* Rs. ${total}`;
-        else msg += `%0A*Request:* Interested in Room Booking.`;
-
-        window.open(`https://wa.me/${dadNum}?text=${msg}`, '_blank');
+        let msg = `*NEW ORDER FROM WEBSITE*%0A*Name:* ${name}%0A*Phone:* ${phone}%0A*Location:* ${loc}%0A*Items:* ${items}%0A*Total:* Rs. ${total}`;
+        window.open(`https://wa.me/${dadPhone}?text=${msg}`, '_blank');
     }
 
-    const infos = {
-        about: "<h2>About Us</h2><p>Kerung Highway Resort is owned by <b>Rabindra Chalise</b> in Nuwakot. We offer the best local hospitality, delicious food, and clean rooms for travelers on the Pasang Lhamu Highway.</p>",
-        contact: "<h2>Contact</h2><p><b>Owner:</b> Rabindra Chalise</p><p><b>Phone:</b> 9851254049</p><p><b>Location:</b> Nuwakot, Nepal</p><p><b>Email:</b> itsmeriyaz697@gmail.com</p>",
-        privacy: "<h2>Privacy Policy</h2><p>We collect only your Name, Phone, and Location to process orders via WhatsApp. We do not store your data or share it with third parties. This site is created for Kerung Highway Resort.</p>"
+    const infoData = {
+        about: "<h2>About Us</h2><p>Kerung Highway Resort is a premier dining and lodging destination in Nuwakot, Nepal. Owned by Rabindra Chalise, we specialize in authentic Nepali cuisine and comfortable roadside accommodation for travelers on the highway.</p>",
+        contact: "<h2>Contact Us</h2><p><b>Owner:</b> Rabindra Chalise</p><p><b>Address:</b> Highway Side, Nuwakot</p><p><b>WhatsApp:</b> 9851254049</p>",
+        privacy: "<h2>Privacy Policy</h2><p>We respect your privacy. We only collect your name and phone number temporarily to send your order via WhatsApp. We do not store your data on any server.</p>"
     };
 
-    function showInfo(k) { document.getElementById('infoBody').innerHTML = infos[k]; document.getElementById('infoModal').style.display = 'flex'; }
+    function showInfo(key) { document.getElementById('infoBody').innerHTML = infoData[key]; document.getElementById('infoModal').style.display='flex'; }
 </script>
 </body>
 </html>
