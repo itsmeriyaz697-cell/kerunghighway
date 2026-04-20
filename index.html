@@ -41,11 +41,29 @@
 </header>
 
 <div class="container">
-    <div class="item"><div class="info"><h3>Chicken Thali</h3><p>Rs. 350</p></div><button class="add-btn" onclick="add('Thali', 350)">Add +</button></div>
-    <div class="item"><div class="info"><h3>Chicken Momo</h3><p>Rs. 150</p></div><button class="add-btn" onclick="add('Momo', 150)">Add +</button></div>
-    <div class="item"><div class="info"><h3>Luxury Room</h3><p>Book Now</p></div><button class="add-btn" style="background:var(--dark);" onclick="openRoom()">Book</button></div>
-</div>
+    <h3 class="category-title">🥟 Momo Specials</h3>
+    <div class="item"><div class="info"><h3>Veg Momo</h3><p>Rs. 120</p></div><button class="add-btn" onclick="add('Veg Momo', 120)">Add +</button></div>
+    <div class="item"><div class="info"><h3>Chicken Momo</h3><p>Rs. 150</p></div><button class="add-btn" onclick="add('Chic Momo', 150)">Add +</button></div>
+    <div class="item"><div class="info"><h3>Buff Momo</h3><p>Rs. 130</p></div><button class="add-btn" onclick="add('Buff Momo', 130)">Add +</button></div>
 
+    <h3 class="category-title">🍛 Main Course</h3>
+    <div class="item"><div class="info"><h3>Thakali Khaja Set</h3><p>Rs. 450</p></div><button class="add-btn" onclick="add('Thakali Set', 450)">Add +</button></div>
+    <div class="item"><div class="info"><h3>Veg Biryani</h3><p>Rs. 250</p></div><button class="add-btn" onclick="add('Veg Biryani', 250)">Add +</button></div>
+    <div class="item"><div class="info"><h3>Chicken Biryani</h3><p>Rs. 350</p></div><button class="add-btn" onclick="add('Chic Biryani', 350)">Add +</button></div>
+    <div class="item"><div class="info"><h3>Veg Chowmein</h3><p>Rs. 100</p></div><button class="add-btn" onclick="add('Veg Chow', 100)">Add +</button></div>
+    <div class="item"><div class="info"><h3>Non-Veg Chowmein</h3><p>Rs. 140</p></div><button class="add-btn" onclick="add('NV Chow', 140)">Add +</button></div>
+
+    <h3 class="category-title">🍟 Snacks</h3>
+    <div class="item"><div class="info"><h3>French Fries</h3><p>Rs. 120</p></div><button class="add-btn" onclick="add('Fries', 120)">Add +</button></div>
+    <div class="item"><div class="info"><h3>Chicken Drumsticks</h3><p>Rs. 300</p></div><button class="add-btn" onclick="add('Drumsticks', 300)">Add +</button></div>
+
+    <h3 class="category-title">🥤 Cold Drinks</h3>
+    <div class="item"><div class="info"><h3>Coke / Fanta / Sprite</h3><p>Rs. 60</p></div><button class="add-btn" onclick="add('Cold Drink', 60)">Add +</button></div>
+    <div class="item"><div class="info"><h3>Red Bull</h3><p>Rs. 120</p></div><button class="add-btn" onclick="add('Red Bull', 120)">Add +</button></div>
+
+    <h3 class="category-title">🛏️ Rooms</h3>
+    <div class="item"><div class="info"><h3>Luxury Room</h3><p>Nuwakot View</p></div><button class="add-btn" style="background:var(--dark);" onclick="openRoom()">Book Room</button></div>
+</div>
 <div class="bottom-bar">
     <div>Total: <span id="total" style="font-weight:bold; color:var(--red);">Rs. 0</span></div>
     <button class="order-btn" onclick="openOrder()">Order / Book</button>
